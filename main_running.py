@@ -16,12 +16,11 @@ def train_running(coinname,hanname,timesArr,payment):
         #2. 화폐 캔들 데이터 수신
         #getCandleData(currency="BTC",times="24h",pyament="KRW")
         candle_datas = getCandleData(coinname,times=times,payment=payment)
-        print(candle_datas.keys())
+        # print(candle_datas.keys())
         if candle_datas["status"]=="0000":
             #3. 훈련 데이터 생성
             # [기준 시간     ,  시작가  ,  종료가  ,  최고가 ,  최저가 ,   거래량]
             source_datas = np.array(candle_datas["data"])
-            print()
             x_data_start,y_data_start = generateData(source_datas[:,1],timeslot)#(source_data,timeslot)
             print(x_data_start.shape,y_data_start.shape)
             #4. 데이터 일치성확인
@@ -75,7 +74,6 @@ def train_running(coinname,hanname,timesArr,payment):
             x_dataset.append(x_d)
         y_dataset=[]
         for ix in range(len(y_data_start)):
-
             y_dataset.append(
                 sum([y_data_start[ix], y_data_end[ix], \
                     y_data_high[ix], y_data_low[ix]]) / 4)
@@ -85,8 +83,15 @@ def train_running(coinname,hanname,timesArr,payment):
         print(y_data.shape)
         print(type(x_data[0]))
         from sklearn.preprocessing import MinMaxScaler
-        scaler = MinMaxScaler()
+        scaler = None
+        if os.path.exists(r"models\{}_scaler".format(coinname)):
+            with open(r"models\{}_scaler".format(coinname),"rb") as fp:
+                scaler = pickle.load(fp)
+        else:
+            scaler = MinMaxScaler()
         #LSTM 입력차원 dim 3
+        print("스케일링 데이터:", x_data.shape)
+        print("스케일링 데이터:", y_data.shape)
         x_data = scaler.fit_transform(x_data).reshape((len(x_data),timeslot,-1))
         y_data = scaler.fit_transform(y_data)
         print("dim:",x_data.ndim)
@@ -104,7 +109,7 @@ def train_running(coinname,hanname,timesArr,payment):
         rmodel.save(r"models\{}_{}_rnnmodel.keras".format(coinname,times))
         with open(r"models\{}_{}_fit_his".format(coinname,times),"wb") as fp:
             pickle.dump(fit_his, fp)
-        if not os.path.exists(r"models\{}_scaler".format(coinname)):
+        if times=="24h":
             with open(r"models\{}_scaler".format(coinname), "wb") as fp:
                 pickle.dump(scaler, fp)
         loss,acc = evaluationModel(rmodel,x_data,y_data)
@@ -137,8 +142,7 @@ if userInput=="all":
     names=names
 else:
     userInput = userInput.split(",")
-    names=[{"symbol":obj["symbol"],"eng":obj["eng"],"kor":obj["kor"]}\
-           for obj in names if obj["symbol"] in userInput]
+    names=[{"symbol":obj["symbol"],"eng":obj["eng"],"kor":obj["kor"]} for obj in names if obj["symbol"] in userInput]
 count_epoch = input("훈련 횟수를 숫자로 지정하세요\n")
 timeslot = 60
 count_epoch = int(count_epoch)

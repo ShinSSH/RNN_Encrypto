@@ -25,9 +25,7 @@ def getInitName():  # 화폐이름 얻어오기
         if "KRW-" not in data["market"]:
             # print(data["market"])#BTC-ETH  BTC 마켓
             continue
-        encrypto_names.append({"symbol": data["market"].split("-")[1],
-                               "eng": data["english_name"],
-                               "kor": data["korean_name"]})
+        encrypto_names.append({"symbol": data["market"].split("-")[1],"eng": data["english_name"],"kor": data["korean_name"]})
     return encrypto_names
 
 
@@ -56,7 +54,7 @@ def getCandleData(currency="BTC", times="24h", payment="KRW"):  # 캔들데이�
 
 # 정렬순서가 최근 데이터가 맨뒤에
 def generateData(source_data, timeslot):  # 시계열 훈련 데이터 생성
-    x_data = [];
+    x_data = []
     y_data = []
     for ix in range(len(source_data) - (timeslot)):
         slot_data = []
