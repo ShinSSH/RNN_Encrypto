@@ -2,8 +2,8 @@
 data_sets=[]
 //데이터 아키텍처{sub_title:"",sub_content:"",sub_img:[],user_fill:"",asso_file:""}
 data_sets.push({
-  sub_title:"이미지 크롤링",
-  sub_content:"구글과 네이버에서 이미지 수집",
+  sub_title:"가상화폐 사이트 API 파악",
+  sub_content:"훈련에 필요한 정보 추출 / 주소와 요청 및 응답값 확인",
   sub_img:["19mE7FPBYbmIENItnh77EuZV6jEjr5UID",
            "1Y9RZRagyRDnfTr5yaqWC8LoPuRC__MMv",
            "1aHiGpZwqN62MyzKF_v_1tnGBZPkv2cRt",
