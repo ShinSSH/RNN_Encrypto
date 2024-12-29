@@ -65,7 +65,7 @@ def generateData(source_data, timeslot):  # 시계열 훈련 데이터 생성
     return np.array(x_data).astype("float"), np.array(y_data).astype("float")
 
 
-def confirm_data(x_data, y_data, source_data):  # 문제 데이터와 정답 데이터 일치성 확인
+def Confirm_Data(x_data, y_data, source_data):  # 문제 데이터와 정답 데이터 일치성 확인
     result_bool = True
     if y_data[0] != x_data[1][-1]:  # 정답 파일 확인
         result_bool = False

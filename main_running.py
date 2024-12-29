@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 import pickle
 import os
-from anal_data import getInitName,getCandleData,generateData,confirm_data,scatterAnal
+from anal_data import getInitName,getCandleData,generateData,Confirm_Data,scatterAnal
 from utility import cv_format,cv_mill2date,cv_date2milli,cv_str2date,gapCompare
 from RNN_constructure import constructureModel
 from rnn_evaluation import rnn_graph,convertValue,today_predict,evaluationModel
@@ -21,42 +21,48 @@ def train_running(coinname,hanname,timesArr,payment):
             #3. 훈련 데이터 생성
             # [기준 시간     ,  시작가  ,  종료가  ,  최고가 ,  최저가 ,   거래량]
             source_datas = np.array(candle_datas["data"])
+
             x_data_start,y_data_start = generateData(source_datas[:,1],timeslot)#(source_data,timeslot)
             print(x_data_start.shape,y_data_start.shape)
             #4. 데이터 일치성확인
-            res = confirm_data(x_data_start,y_data_start,source_datas[:,1])
+            res = Confirm_Data(x_data_start,y_data_start,source_datas[:,1])
             if res:
                 print("모든데이터 정답과 일치")
             else:print("데이터 혼합 잘못됨")
             # scatterAnal(x_data_start, y_data_start,weight_avg,"start price")
+
             x_data_end, y_data_end = generateData(source_datas[:, 2], timeslot)  # (source_data,timeslot)
-            res = confirm_data(x_data_end, y_data_end, source_datas[:, 2])
+            res = Confirm_Data(x_data_end, y_data_end, source_datas[:, 2])
             if res:
                 print("모든데이터 정답과 일치")
             else:
                 print("데이터 혼합 잘못됨")
             # scatterAnal(x_data_end, y_data_end, weight_avg, "end price")
+
             x_data_high, y_data_high = generateData(source_datas[:, 3], timeslot)  # (source_data,timeslot)
-            res = confirm_data(x_data_high, y_data_high, source_datas[:, 3])
+            res = Confirm_Data(x_data_high, y_data_high, source_datas[:, 3])
             if res:
                 print("모든데이터 정답과 일치")
             else:
                 print("데이터 혼합 잘못됨")
             # scatterAnal(x_data_high, y_data_high, weight_avg, "maxhigh price")
+
             x_data_low, y_data_low = generateData(source_datas[:, 4], timeslot)  # (source_data,timeslot)
-            res = confirm_data(x_data_low, y_data_low, source_datas[:, 4])
+            res = Confirm_Data(x_data_low, y_data_low, source_datas[:, 4])
             if res:
                 print("모든데이터 정답과 일치")
             else:
                 print("데이터 혼합 잘못됨")
             # scatterAnal(x_data_low, y_data_low, weight_avg, "minlow price")
+
             x_data_amount, y_data_amount = generateData(source_datas[:, 5], timeslot)  # (source_data,timeslot)
-            res = confirm_data(x_data_amount, y_data_amount, source_datas[:, 5])
+            res = Confirm_Data(x_data_amount, y_data_amount, source_datas[:, 5])
             if res:
                 print("모든데이터 정답과 일치")
             else:
                 print("데이터 혼합 잘못됨")
             # scatterAnal(x_data_amount, y_data_amount, weight_avg, "trade quantity")
+
             #분석결과 5 인덱스의 quantity 부분은 선형선과 관련부족으로 제외
 
         else:print("데이터 수신 실패")

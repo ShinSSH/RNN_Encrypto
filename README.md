@@ -6,30 +6,18 @@
 
 ==========================================================  
 
-1.크롤링 작업   
-Crawling/Craw_image_running :: main run  
-Crawling/Google_Crawling_Image :: import    
-Crawling/Naver_Crawling_Image :: import 
-** 입력 : 이미지 저장경로, 검색어, 영문파일이름    
+1.API활용 가상화폐 데이터 수집
 
-::: 실습환경 :::  
-[ 크롬 드라이버 필요 ] (https://googlechromelabs.github.io/chrome-for-testing/)     
-win64 v131.0.6788.108  
-[ 크롬 웹브라우저 필요 ]  
-131.0.6778.140(공식 빌드) 64bit
+anal_data/getInitName :: 가상화폐 이름 수집     
+anal_data/getCandleData :: 가상화폐 캔들데이터 수집
 
-2.이미지 배경 제거 및 데이터 증강   
-Preprocessing/Preprocessing_Running :: main run 
-Preprocessing/Remove_Background :: import   
-Preprocessing/utility :: import     
-** 이미지 배경제거 후 회전,밝기조정 확대 기법으로 이미지 데이터 증강    
+2.훈련 데이터 생성 및 데이터 일치성 확인 및 분류
 
-::: 실습 환경 :::   
-tf.image.random_brightness  
-tf.keras.layers.RandomRotation  
-tf.keras.layers.RandomFlip  
-tf.keras.layers.RandomZoom  
-rembg.remove    
+anal_data/generateData :: 캔들 데이터로 훈련 데이터 생성     
+anal_data/Confirm_Data :: 문제 데이터와 정답 데이터 일치성 확인     
+anal_data/scatterAnal :: 산점도 그래프로 관련성 확인           
+
+** 5번 인덱스(quantity)는 관련성 부족으로 데이터에서 제외시킴
 
 3.데이터 전처리 및 훈련 실행 및 평가  
 Trainning/train_fit :: main run 
