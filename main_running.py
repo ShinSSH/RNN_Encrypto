@@ -63,7 +63,7 @@ def train_running(coinname,hanname,timesArr,payment):
                 print("데이터 혼합 잘못됨")
             # scatterAnal(x_data_amount, y_data_amount, weight_avg, "trade quantity")
 
-            #분석결과 5 인덱스의 quantity 부분은 선형선과 관련부족으로 제외
+            # 분석결과 5 인덱스의 quantity 부분은 선형선과 관련부족으로 제외
 
         else:print("데이터 수신 실패")
 
