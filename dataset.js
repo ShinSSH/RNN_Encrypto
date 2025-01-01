@@ -9,14 +9,13 @@ data_sets.push({
            "1I39KPje62cJQ2tMaDCq1r6XsVIjj_GOk",
            "1xTlq0ta0dVe2Vo8Ryj23KgRmRBfcrhzI"],
   user_fill:"Bithumb의 API를 사용해 훈련데이터에 사용할 자료를 추출함 ",
-  asso_file:"관련파일 /anal_data/getInitName()\n"
+  asso_file:"관련파일 /anal_data/getInitName()"\n
                    "/anal_data/getCandleData()"
 })
 
 data_sets.push({
   sub_title:"데이터 확인 분류 및 훈련 데이터 생성",
   sub_content:"훈련데이터와 정답데이터의 일치성을 확인 후 데이터 분류 후 최종 데이터 생성",
-
   sub_img:["1sjHY4duxXitav1eaGAsDZmeEocl9nfpf",
            "1SUfkIoGXfqL6F_k_MR6GWAGh3nJBFwcg"],
   user_fill:"불러 온 캔들데이터로 훈련데이터와 정답데이터를 생성, 산점도를 이용해 관련성체크 후 분류",
