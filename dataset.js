@@ -19,7 +19,7 @@ data_sets.push({
   sub_img:["1sjHY4duxXitav1eaGAsDZmeEocl9nfpf",
            "1SUfkIoGXfqL6F_k_MR6GWAGh3nJBFwcg"],
   user_fill:"불러 온 캔들데이터로 훈련데이터와 정답데이터를 생성, 산점도를 이용해 관련성체크 후 분류",
-  asso_file:"관련파일 /anal_data/Confirm_Data\n/anal_data/scatterAnal()"
+  asso_file:"관련파일 /anal_data/Confirm_Data()\n/anal_data/scatterAnal()"
 })
 
 data_sets.push({
@@ -28,7 +28,7 @@ data_sets.push({
   sub_img:["1hB9J99jaKlbPdenlPXkglgEq0VhMWDGG",
            "1bxZ8rcQdU60HOu7YlofnGWT-smhvJE6P"],
   user_fill:"LSTM을 적용시킨 모델을 훈련",
-  asso_file:"관련파일 /RNN_constructure/constructureModel\n/userPredict/getX\n/userPredict/predict_coinprice "
+  asso_file:"관련파일 /RNN_constructure/constructureModel()\n/userPredict/getX()\n/userPredict/predict_coinprice()"
 })
 
 data_sets.push({
