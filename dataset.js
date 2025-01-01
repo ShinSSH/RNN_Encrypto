@@ -28,8 +28,7 @@ data_sets.push({
   sub_img:["1hB9J99jaKlbPdenlPXkglgEq0VhMWDGG",
            "1bxZ8rcQdU60HOu7YlofnGWT-smhvJE6P"],
   user_fill:"LSTM을 적용시킨 모델을 훈련",
-  asso_file:"관련파일 /RNN_constructure/constructureModel\n",
-                   "/userPredict/getX\n/userPredict/predict_coinprice "
+  asso_file:"관련파일 /RNN_constructure/constructureModel\n/userPredict/getX\n/userPredict/predict_coinprice "
 })
 
 data_sets.push({
