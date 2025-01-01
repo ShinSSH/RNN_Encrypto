@@ -13,7 +13,7 @@ data_sets.push({
 })
 
 data_sets.push({
-  sub_title:"데이터 확인 분류 및 최종 데이터 생성",
+  sub_title:"데이터 확인 분류 및 훈련 데이터 생성",
   sub_content:"수집한 이미지의 배경을 제거 시키고 밝기,회전 등을 조정하여 이미지 수량을 증대함",
   sub_img:["1sjHY4duxXitav1eaGAsDZmeEocl9nfpf",
            "1SUfkIoGXfqL6F_k_MR6GWAGh3nJBFwcg"],
@@ -41,7 +41,7 @@ data_sets.push({
 })
 
 data_sets.push({
-  sub_title:"예측값 확인",
+  sub_title:"평가 및 예측값 확인",
   sub_content:"구성된 모델을 전처리 한 훈련데이터를 이용해 훈련",
   sub_img:["1_VfQpUrd6vZUGy82dOYpFxkfoAy4GpcU",
            "1SS1ZMsRGOXDHqGZ61wq6vAUkkzsMCZJy",
