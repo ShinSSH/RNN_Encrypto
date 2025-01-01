@@ -9,53 +9,57 @@ data_sets.push({
            "1I39KPje62cJQ2tMaDCq1r6XsVIjj_GOk",
            "1xTlq0ta0dVe2Vo8Ryj23KgRmRBfcrhzI"],
   user_fill:"Bithumb의 API를 사용해 훈련데이터에 사용할 자료를 추출함 ",
-  asso_file:"관련파일 /anal_data/getInitName 실행\n/anal_data/getCandleData",
+  asso_file:"관련파일 /anal_data/getInitName()\n/anal_data/getCandleData()"
 })
 
 data_sets.push({
   sub_title:"데이터 확인 분류 및 훈련 데이터 생성",
-  sub_content:"수집한 이미지의 배경을 제거 시키고 밝기,회전 등을 조정하여 이미지 수량을 증대함",
+  sub_content:"훈련데이터와 정답데이터의 일치성을 확인 후 데이터 분류 후 최종 데이터 생성",
+
   sub_img:["1sjHY4duxXitav1eaGAsDZmeEocl9nfpf",
            "1SUfkIoGXfqL6F_k_MR6GWAGh3nJBFwcg"],
-  user_fill:"배경제거를 위해 remgb 라이브러리를 사용, 이미지 증대를 위해 텐서플로우의 밝기,회전 등의 라이브러리를 사용",
-  asso_file:"관련파일 /Preprocessing/Preprocessing_Running.readImageDirect 호출 실행"
+  user_fill:"불러 온 캔들데이터로 훈련데이터와 정답데이터를 생성, 산점도를 이용해 관련성체크 후 분류",
+  asso_file:"관련파일 /anal_data/Confirm_Data\n",
+                   "/anal_data/scatterAnal()"
 })
 
 data_sets.push({
-  sub_title:"모델 생성 및 구성",
-  sub_content:"증대된 이미지의 사이즈 변경 및 수치표준화와 원핫 인코딩을 적용하여 훈련데이터를 셋팅",
+  sub_title:"모델 생성",
+  sub_content:"모델 생성 후 예측모델 평가모델 적용",
   sub_img:["1hB9J99jaKlbPdenlPXkglgEq0VhMWDGG",
            "1bxZ8rcQdU60HOu7YlofnGWT-smhvJE6P"],
-  user_fill:"배경제거를 위해 remgb 라이브러리를 사용, 이미지 증대를 위해 텐서플로우의 밝기,회전 등의 라이브러리를 사용",
-  asso_file:"관련파일 /Training/construct_Model"
+  user_fill:"LSTM을 적용시킨 모델을 훈련",
+  asso_file:"관련파일 /RNN_constructure/constructureModel\n",
+                   "/userPredict/getX\n",
+                   "/userPredict/predict_coinprice "
 })
 
 data_sets.push({
   sub_title:"모델 트레이닝",
-  sub_content:"전처리 된 정답과 이미지 순서 일치를 확인 후 모델 구성",
+  sub_content:"main_running을 실행하여 저장된 모델 트레이닝",
   sub_img:["1Lt-J-AGnLXEi6e8UNl1pfmd3K8cLkZDH",
            "1Pqr59aLUimcCuL8NatCybI0_Ie2TLyn5",
            "1aVBf8j9Yq1AfaRV_IYSu9PhMWFGQk1Hl"],
-  user_fill:"Conv2D 레이어와 MaxPool2D 및 Dropout을 이용해 특성 추출과 과적합 방지 및 일반화",
-  asso_file:"관련파일 /Training/construct_Model,train_fit"
+  user_fill:"화폐명, 훈련횟수를 직접 선택하여 훈련",
+  asso_file:"관련파일 "
 })
 
 data_sets.push({
   sub_title:"평가 및 예측값 확인",
-  sub_content:"구성된 모델을 전처리 한 훈련데이터를 이용해 훈련",
+  sub_content:"트레이닝 및 평가 예측을 동시 진행",
   sub_img:["1_VfQpUrd6vZUGy82dOYpFxkfoAy4GpcU",
            "1SS1ZMsRGOXDHqGZ61wq6vAUkkzsMCZJy",
            "1p04fHDPH-LToDD_EfMWiDpwub0xaDoQ-",
            "1t61gICTkLFZuKeGMurhmoAAIorsRePQd"],
-  user_fill:"콜백 함수를 이용해 최적의 정확도를 가진 모델을 훈련",
-  asso_file:"관련파일 /Training/train_fit"
+  user_fill:"1회 훈련시마다 평가와 예측을 반복",
+  asso_file:"관련파일 "
 })
 
 data_sets.push({
   sub_title:"모델 성능 시각화",
-  sub_content:"모델의 종합적인 성능평가를 위해 여러 그래프 시각화 시킴",
+  sub_content:"훈련 된 모델의 loss값을 시각화 시킴",
   sub_img:["1Bt3LQHXWpm7g7xIXQusNVs3KFmqlFfIa",
            "1gaTNCAK-7YZZZr27D-xcmWRsn2ILipqC"],
-  user_fill:"matplotlib, confusion_matrix,classification_report 라이브러리를 이용한 시각화 및 성능확인 - 확인 결과 성능이 다소 떨어짐, 앵무새와 호랑이를 제외한 나머지 이미지에 대한 추가 훈련이미지 수집이 필요.",
-  asso_file:"관련파일 /Training/train_fit"
+  user_fill:"matplotlib을 이용해 loss값 시각화",
+  asso_file:"관련파일 "
 })
