@@ -9,7 +9,7 @@ data_sets.push({
            "1I39KPje62cJQ2tMaDCq1r6XsVIjj_GOk",
            "1xTlq0ta0dVe2Vo8Ryj23KgRmRBfcrhzI"],
   user_fill:"Bithumb의 API를 사용해 훈련데이터에 사용할 자료를 추출함 ",
-  asso_file:["관련파일 /anal_data/getInitName()"\n"/anal_data/getCandleData()"]
+  asso_file:["관련파일 /anal_data/getInitName()\n","/anal_data/getCandleData()"]
 })
 
 data_sets.push({
